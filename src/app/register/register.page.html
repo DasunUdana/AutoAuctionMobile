@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login" style="color:white"></ion-back-button>
+    </ion-buttons>
+    <ion-title align="center" style="color:white;margin-right: 20%;">Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #form="ngForm" [formGroup]="regform" (ngSubmit)="registerform(form)">
+    <div>
+      <div align="center" style="margin-top: 5%">
+        <!-- <ion-label position="floating" id="dheading" name="dheading" style="margin-top:5%;font-size: xx-large;color: darkblue">Auto-Auction</ion-label> -->
+        <ion-img src="assets/logo.jpg" style="width: 80%"></ion-img>
+      </div>
+      <div style="margin-top: 10%;margin-left: 6%">
+        <div style="margin-left: 3%;width:98%; margin-right: 2%;margin-top: 3%">
+          <!-- <ion-label style="float:left" class="statelabels" required>Name </ion-label> -->
+          <div>
+            <ion-input class="tbox" style="float:left; width:90%" type="text" id="firstName" placeholder="  First Name"
+              formControlName="firstName" [(ngModel)]="firstName" name="firstName" required> </ion-input>
+            <ion-input class="tbox" style="float:left; width:90%;margin-top: 6%" type="text" id="lastName" placeholder="  Last Name"
+              formControlName="lastName" [(ngModel)]="lastName" name="lastName" required> </ion-input>
+          </div>
+        </div>
+
+        <div style="margin-left: 3%;width:98%; margin-right: 2%;margin-top: 3%">
+          <!-- <ion-label style="float:left;margin-top: 3%" class="statelabels">Mobile Number </ion-label> -->
+
+          <div>
+            <ion-input class="tbox" style="float:left; width:90%;margin-top: 6%" type="Mobile" id="mobile_phone"
+              placeholder="  Mobile Number" formControlName="mobile_phone" [(ngModel)]="mobile_phone" name="mobile_phone"
+              maxlength="10" pattern="[0-9]{10}" required> </ion-input>
+          </div>
+
+        </div>
+
+        <div style="margin-left: 3%;width:98%; margin-right: 2%;margin-top: 3%">
+          <!-- <ion-label style="float:left;margin-top: 3%" class="statelabels">Email</ion-label> -->
+
+          <div>
+            <ion-input class="tbox" style="float:left; width:90%;margin-top: 6%" type="Email" id="email" placeholder="  Email"
+              formControlName="email" [(ngModel)]="email" name="email" required> </ion-input>
+          </div>
+
+        </div>
+
+        <div style="margin-left: 3%;width:98%; margin-right: 2%;margin-top: 3%">
+          <!-- <ion-label style="float:left;margin-top: 3%" class="statelabels">Password</ion-label> -->
+
+          <div>
+            <ion-input class="tbox" style="float:left; width:90%;margin-top: 6%" type="Password" id="password"
+              placeholder="  Password" formControlName="password" [(ngModel)]="password" name="password" required>
+            </ion-input>
+          </div>
+
+          <div>
+            <ion-input class="tbox" style="float:left; width:90%;margin-top: 6%" type="Password" id="repassword"
+              placeholder="  Confirm Password" formControlName="repassword" [(ngModel)]="password" name="password"
+              required> </ion-input>
+          </div>
+
+        </div>
+
+
+        <div align="center" style="margin-top:5%">
+          <ion-label class="statelabels" style="float:left;margin-top: 3%">By Clicking "Register" below, you are
+            agreeing to the AUTO-AUCTION Terms and Conditions and Privacy policy.</ion-label>
+
+        </div>
+
+        <div padding align="center">
+          <ion-button class="loginbutton" style="width:75%;color:whitesmoke;margin-top:6%" type="submit">REGISTER</ion-button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </form>
+
+</ion-content>

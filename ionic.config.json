@@ -1,0 +1,8 @@
+{
+  "name": "autoAuction",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "215eea09"
+}
