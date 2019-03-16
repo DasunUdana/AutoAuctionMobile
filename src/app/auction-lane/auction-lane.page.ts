@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auction-lane.page.scss'],
 })
 export class AuctionLanePage implements OnInit {
+  // slideOpts = {
+  //   effect: 'flip'
+  // }; 
 
   constructor() { }
 

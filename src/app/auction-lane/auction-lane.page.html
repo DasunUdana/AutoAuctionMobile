@@ -1,9 +1,75 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>auctionLane</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login" style="color:white"></ion-back-button>
+    </ion-buttons>
+    <ion-title align="center" style="color:white;margin-right: 20%;">Auction Lane</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <div align="center" style="margin-top: 5%">
+    <ion-img src="assets/logo.jpg" style="width: 80%"></ion-img>
+  </div>
+
+  <div style="margin-top: 5%">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <ion-card style="width:90%">
+          <ion-card-header>
+            <ion-card-title style="color: white;"><b>Public Auction</b></ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <ion-label>Location : </ion-label>
+            <ion-item> 123, Colombo Rd, Kandy</ion-item>
+
+            <ion-label>Prebids : </ion-label>
+            <ion-item> Accept</ion-item>
+
+            <ion-label >Bid Deposits : </ion-label>
+            <ion-item> Required</ion-item>
+
+            <ion-label>Inspection Dates : </ion-label>
+            <ion-item> 27/02/2019 - 28/02/2019</ion-item>
+
+            <ion-label>Live Auction : </ion-label>
+            <ion-item> 29/02/2019</ion-item>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="width:90%">
+          <ion-card-header>
+            <ion-card-title style="color: white;"><b>NDB Auction</b></ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <ion-label>Location : </ion-label>
+            <ion-item> 57 , Galle Rd, Colombo</ion-item>
+
+            <ion-label>Prebids : </ion-label>
+            <ion-item> Not Accepted</ion-item>
+
+            <ion-label>Bid Deposits : </ion-label>
+            <ion-item> Required</ion-item>
+
+            <ion-label>Inspection Dates : </ion-label>
+            <ion-item> 27/02/2019 - 28/02/2019</ion-item>
+
+            <ion-label>Live Auction : </ion-label>
+            <ion-item> 29/02/2019</ion-item>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+    </ion-slides>
+
+  </div>
 
 </ion-content>
