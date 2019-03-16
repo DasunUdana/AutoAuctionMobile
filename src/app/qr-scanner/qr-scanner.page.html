@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login" style="color:white"></ion-back-button>
+    </ion-buttons>
+    <ion-title align="center" style="color:white;margin-right: 20%;">QR Code Scanner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <ion-card *ngIf="scannedCode">
+      <ion-card-content>
+        {{scannedCode}}
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+
+</ion-content>
