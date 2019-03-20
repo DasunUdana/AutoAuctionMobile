@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'qr-scanner', loadChildren: './qr-scanner/qr-scanner.module#QrScannerPageModule' },
   { path: 'auction-lane', loadChildren: './auction-lane/auction-lane.module#AuctionLanePageModule' },
   { path: 'auction-inventory', loadChildren: './auction-inventory/auction-inventory.module#AuctionInventoryPageModule' },
+  { path: 'connect-live', loadChildren: './connect-live/connect-live.module#ConnectLivePageModule' },
   { path: '**', redirectTo: 'menu-items' },
+
 
 
   
