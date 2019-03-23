@@ -1,0 +1,41 @@
+.borders {
+    border: 0.5px black solid
+}
+
+.margin-right {
+    margin-right: 5%
+}
+
+.tool-bar-back {
+    --background: linear-gradient(to right, #32FA94, #487fee)
+}
+
+.status-panel {
+    background-color: yellow;
+    width: 100%;
+    height: 100%;
+    padding: 0.5%;
+    font-weight: 800; 
+}
+
+.price {
+    position: absolute;
+    height: 25%;
+    background: #000000cc;
+    z-index: 100;
+    bottom: 3%;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    right: 10%;
+    padding: 4% 10%;
+}
+
+.content-back {
+    --background: linear-gradient(to right,#487fee,#32fa95)
+}
+
+.detail-cards {
+    background-color: white;
+    height: 130px;
+}

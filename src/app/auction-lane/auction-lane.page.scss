@@ -9,10 +9,14 @@ ion-card-content{
 
 ion-label{
     float: left;
-    color: #4079CA;
+    color: darkblue;
 
 }
 
 ion-item{
     color: #09387C;
+}
+
+.content-back {
+    --background: linear-gradient(to right,#487fee,#32fa95)
 }
