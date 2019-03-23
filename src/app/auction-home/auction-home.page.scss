@@ -1,0 +1,24 @@
+
+.content-back {
+    --background: linear-gradient(to right,#487fee,#32fa95)
+}
+
+
+ion-card{
+    position: relative;
+    text-align: center;
+    height: 35%;
+    
+}
+
+.card-title{
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #1A5276 ;
+    margin-top: 32%;
+   
+    
+}

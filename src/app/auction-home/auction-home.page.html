@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home" style="color:white"></ion-back-button>
+      </ion-buttons>
+      <ion-title align="center" style="color:white;margin-right: 20%;">Auction Inventory</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content class="content-back" padding>
+  
+    <ion-card [routerLink]="['/auction-inventory']">
+        <img src="assets/general.png" />
+        
+            <div class="card-title" align="center">GENERAL AUCTION </div>
+    
+        
+    </ion-card>
+  
+    <ion-card>
+      <img src="assets/premium.png" [routerLink]="['/connect-live']"  />
+      <div class="card-title" align="center">PREMIUM AUCTION</div>
+    </ion-card>
+  
+    <ion-card [routerLink]="['/auction-lane']">
+      <img src="assets/commercial.png" />
+      <div class="card-title" align="center">COMMERCIAL AUCTION</div>
+    </ion-card>
+  
+    <ion-card  [routerLink]="['/qr-scanner']">
+      <img src="assets/classic.png" />
+      <div class="card-title" align="center">CLASSIC AUCTION</div>
+    </ion-card> 
+  
+    <ion-card  [routerLink]="['/qr-scanner']">
+      <img src="assets/salvage.png" />
+      <div class="card-title" align="center">SALVAGE AUCTION</div>
+    </ion-card> 
+
+    <ion-card  [routerLink]="['/qr-scanner']">
+      <img src="assets/advertist.png" />
+      <div class="card-title" align="center">HOST YOUR AUCTION</div>
+    </ion-card> 
+  </ion-content>

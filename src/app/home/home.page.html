@@ -13,9 +13,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="card-background-page" padding>
+<ion-content class="content-back" padding>
 
-  <ion-card [routerLink]="['/auction-inventory']">
+  <!-- <ion-card [routerLink]="['/auction-inventory']">
       <img src="assets/cartwo.png" />
       <div class="card-title" align="center">AUCTION INVENTORY </div>
   </ion-card>
@@ -33,6 +33,47 @@
   <ion-card  [routerLink]="['/qr-scanner']">
     <img src="assets/qr.png" />
     <div class="card-title" align="center">QR SCANNER</div>
-  </ion-card>
+  </ion-card> -->
 
+  <div align="center" style="margin-top:3%">
+    <ion-label style="color: white;font-size: x-large">
+      Welcome to <br> AUTO-AUCTION
+    </ion-label>
+  </div>
+
+  <ion-grid class="tbox" style="margin-top:7%; height:70%">
+    <ion-row>
+      <ion-col>
+        <ion-card class="card-content" [routerLink]="['/auction-home']">
+          <ion-icon name="apps"></ion-icon>
+          <div class="card-title" align="center">AUCTION INVENTORY </div>
+        </ion-card>
+
+      </ion-col>
+      <ion-col>
+        <ion-card class="card-content" [routerLink]="['/connect-live']" >
+            <ion-icon name="pulse"></ion-icon>
+          <div class="card-title" align="center">CONNECT LIVE </div>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card class="card-content" [routerLink]="['/auction-lane']">
+            <ion-icon name="list-box"></ion-icon>
+          <div class="card-title" align="center">AUCTION SCHEDULE </div>
+        </ion-card>
+
+      </ion-col>
+      <ion-col>
+        <ion-card class="card-content"  [routerLink]="['/qr-scanner']">
+            <ion-icon name="qr-scanner"></ion-icon>
+          <div class="card-title" align="center">QR SCANNER</div>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -12,8 +12,11 @@ const routes: Routes = [
   { path: 'qr-scanner', loadChildren: './qr-scanner/qr-scanner.module#QrScannerPageModule' },
   { path: 'auction-lane', loadChildren: './auction-lane/auction-lane.module#AuctionLanePageModule' },
   { path: 'connect-live', loadChildren: './connect-live/connect-live.module#ConnectLivePageModule' },
+  { path: 'auction-home', loadChildren: './auction-home/auction-home.module#AuctionHomePageModule' },
   { path: 'auction-inventory', loadChildren: './auction-inventory/auction-inventory.module#AuctionInventoryPageModule' },
   { path: '**', redirectTo: 'menu-items' },
+ 
+
   
 
 
