@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { QRScanner} from '@ionic-native/qr-scanner/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({

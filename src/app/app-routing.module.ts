@@ -14,10 +14,12 @@ const routes: Routes = [
   { path: 'connect-live', loadChildren: './connect-live/connect-live.module#ConnectLivePageModule' },
   { path: 'auction-home', loadChildren: './auction-home/auction-home.module#AuctionHomePageModule' },
   { path: 'auction-inventory', loadChildren: './auction-inventory/auction-inventory.module#AuctionInventoryPageModule' },
+  { path: 'connect-live', loadChildren: './connect-live/connect-live.module#ConnectLivePageModule' },
   { path: '**', redirectTo: 'menu-items' },
  
 
   
+
 
 
 
