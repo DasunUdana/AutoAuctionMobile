@@ -5,12 +5,14 @@ ion-card{
     height:75%;
     width: 95%;
     float: left;
-    border: 1px solid whitesmoke;
+    //border: 1px solid whitesmoke;
     margin-left: 5%;
     margin-top: 5%;
     margin-bottom: 3%;
     margin-right: 5%;
-    background: #11000000 ;
+   background: #3A496D7A;
+   border-radius: 15px;
+
     
 }
 
@@ -28,6 +30,9 @@ ion-card{
     --background: linear-gradient(to right,#487fee,#32fa95)
 }
 
+.card-conetent{
+    --background: linear-gradient(to right,#487fee,#487fee)
+}
 
 .tbox {
     width: 100%;
@@ -61,4 +66,6 @@ ion-icon{
 ion-avatar{
     height: 35%;
     width: 35%;
+    margin-top: 10%;
+    color: white;
 }
