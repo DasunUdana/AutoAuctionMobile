@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { VehicalDetailViewPage } from '../vehical-detail-view/vehical-detail-view.page';
 
 @Component({
   selector: 'app-auction-inventory',
@@ -13,7 +15,15 @@ export class AuctionInventoryPage implements OnInit {
     { "id": 3, "name": "Mazda RX8", "description": "hhhhhhhhhhhhhhhhh", "price": 5500000, "milage": 25000, "img": "assets/vehical3.png" , "capacity": 1600 }
   ];
 
-  constructor() { }
+  constructor(public modalController: ModalController) { }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: VehicalDetailViewPage
+    });
+
+    return await modal.present();
+  }
 
   ngOnInit() {
 

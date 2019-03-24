@@ -9,7 +9,7 @@
 
 <ion-content class="">
   <ion-list no-padding>
-    <ion-card *ngFor="let data of vehicalList">
+    <ion-card *ngFor="let data of vehicalList" (click)="presentModal()">
       <ion-grid style="height: 100%;">
         <ion-row style="height: 70%;">
           <ion-col size="6">

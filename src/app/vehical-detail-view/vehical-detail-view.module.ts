@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AuctionInventoryPage } from './auction-inventory.page';
-import { VehicalDetailViewPage } from '../vehical-detail-view/vehical-detail-view.page';
+import { VehicalDetailViewPage } from './vehical-detail-view.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AuctionInventoryPage
+    component: VehicalDetailViewPage
   }
 ];
 
@@ -22,7 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AuctionInventoryPage, VehicalDetailViewPage],
-  entryComponents: [VehicalDetailViewPage]
+  declarations: [VehicalDetailViewPage]
 })
-export class AuctionInventoryPageModule {}
+export class VehicalDetailViewPageModule {}
