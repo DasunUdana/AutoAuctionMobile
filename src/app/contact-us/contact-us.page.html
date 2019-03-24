@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar class="too-bar-back">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-back">
+  <div class="section_title title-background" padding>Get in touch with us
+    <div class="section_subtitle">Say hello</div>
+  </div>
+  <div class="contact_info_text">
+    <p>To conduct live auctions for your vehicles, please write to <a href="/cdn-cgi/l/email-protection"
+        class="__cf_email__" data-cfemail="670e0901082706121308061204130e0809490b0c">[email&#160;protected]</a> or call
+      us on +94-77-887-1613.</p>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <ion-card class="card">
+              <ion-card-header>
+                <ion-card-title>Address</ion-card-title>
+              </ion-card-header>
+          
+              <ion-card-content>
+                163/A Colombo Road, Pilimathalawa
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+      <ion-col>
+          <ion-card class="card">
+              <ion-card-header>
+                <ion-card-title>Phone</ion-card-title>
+              </ion-card-header>
+          
+              <ion-card-content>
+                +94-71-095-2444
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card padding class="card" style="height: inherit;">
+    <ion-card-header>
+      <ion-card-title>Email</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-subtitle>General Inquiries</ion-card-subtitle>
+    <ion-card-content>
+      <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+        data-cfemail="d9b0b7bfb699b8acadb6b8acbaadb0b6b7f7b5b2">[email&#160;protected]</a>
+    </ion-card-content>
+    <ion-card-subtitle>Auction Inquiries</ion-card-subtitle>
+    <ion-card-content>
+      <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+        data-cfemail="b4d6ddd0f4d5c1c0dbd5c1d7c0dddbda9ad8df">[email&#160;protected]</a>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card padding style="border: 1px white solid;">
+    <form #form="ngForm" [formGroup]="contactform" (ngSubmit)="registerform(form)">
+      <ion-input placeholder="Name" class="tbox"></ion-input>
+      <ion-input placeholder="Email" class="tbox"></ion-input>
+      <ion-input placeholder="Subject" class="tbox"></ion-input>
+      <ion-textarea placeholder="Message" class="tbox" rows="6"></ion-textarea>
+
+      <div padding align="center">
+        <ion-button class="loginbutton" style="width:75%;color:whitesmoke;margin-top:6%" type="submit">Submit
+        </ion-button>
+      </div>
+    </form>
+  </ion-card>
+
+</ion-content>

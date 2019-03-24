@@ -11,5 +11,15 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 .too-bar-back {
-    --background: #3f6fce
+    --background: #3f6fce;
+    --color: white;
 }
+
+.content-back {
+    --background: linear-gradient(to right,#487fee,#32fa95);
+}
+
+.title-background {
+    --background: #d0cbcb7a;
+}
+

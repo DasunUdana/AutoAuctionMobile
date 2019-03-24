@@ -11,7 +11,7 @@ export class MenuItemsPage implements OnInit {
   public appPages = [
     {
       title: 'How To Bid',
-      url: '/home',
+      url: '/how-to-bid',
       icon: 'car'
     },
     {
@@ -21,12 +21,12 @@ export class MenuItemsPage implements OnInit {
     },
     {
       title: 'About Us',
-      url: '/home',
+      url: '/about-us',
       icon: 'people'
     },
     {
       title: 'Contact Us',
-      url: '/home',
+      url: '/contact-us',
       icon: 'contacts'
     }
 
