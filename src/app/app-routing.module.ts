@@ -11,10 +11,16 @@ const routes: Routes = [
   { path: 'auction-shedules', loadChildren: './auction-shedules/auction-shedules.module#AuctionShedulesPageModule' },
   { path: 'qr-scanner', loadChildren: './qr-scanner/qr-scanner.module#QrScannerPageModule' },
   { path: 'auction-lane', loadChildren: './auction-lane/auction-lane.module#AuctionLanePageModule' },
+  { path: 'connect-live', loadChildren: './connect-live/connect-live.module#ConnectLivePageModule' },
+  { path: 'auction-home', loadChildren: './auction-home/auction-home.module#AuctionHomePageModule' },
   { path: 'auction-inventory', loadChildren: './auction-inventory/auction-inventory.module#AuctionInventoryPageModule' },
   { path: 'connect-live', loadChildren: './connect-live/connect-live.module#ConnectLivePageModule' },
   { path: 'vehical-detail-view', loadChildren: './vehical-detail-view/vehical-detail-view.module#VehicalDetailViewPageModule' },
   { path: '**', redirectTo: 'menu-items' },
+ 
+
+  
+
 
 
 
