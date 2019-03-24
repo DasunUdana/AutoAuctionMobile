@@ -16,14 +16,9 @@ ion-card{
     width: 100%;
     font-weight: bold;
     color: white;
-    margin-top: 32%;
-<<<<<<< .mine
+    padding-top: 32%;
    background: hsla(186, 52%, 0%, 0.7);
-    
-=======
-
-
->>>>>>> .theirs
+   height: 100%;
 }
 
 .card-overlay {
@@ -32,5 +27,5 @@ ion-card{
     height: 100%;
     top: 0;
     // background: linear-gradient(to right, rgba(68, 253, 159, 0.65), rgba(72, 127, 238, 0.65));
-    --background: #00000070;
+    background-color: #00000070;
 }
