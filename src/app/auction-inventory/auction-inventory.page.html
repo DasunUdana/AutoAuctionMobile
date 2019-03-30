@@ -9,11 +9,11 @@
 
 <ion-content class="">
   <ion-list no-padding>
-    <ion-card *ngFor="let data of vehicalList" (click)="presentModal()" class="content-back">
+    <ion-card *ngFor="let data of vehicleList" (click)="presentModal()" class="content-back">
       <ion-grid style="height: 100%;">
         <ion-row style="height: 70%;">
           <ion-col size="6">
-            <img style="width: 100%;" src={{data.img}} />
+            <img style="width: 100%;" src={{data.img_url_1}} />
           </ion-col>
           <ion-col style="padding: 15px 0">
             <ion-row style="padding: 5px; font-weight: 800; font-size: 1rem;">
@@ -21,15 +21,15 @@
             </ion-row>
             <ion-row style="padding: 5px">
               <ion-icon name="speedometer" style="padding-right: 10px" color="primary"></ion-icon>
-              <ion-label> {{data.milage}} Km</ion-label>
+              <ion-label> {{data.mileage}} Km</ion-label>
             </ion-row>
             <ion-row style="padding: 5px">
               <ion-icon name="car" style="padding-right: 10px" color="primary"></ion-icon>
-              <ion-label> {{data.capacity}} CC</ion-label>
+              <ion-label> {{data.engine}} CC</ion-label>
             </ion-row>
             <ion-row style="padding: 5px; font-weight: 800; color: black">
                 <ion-icon name="pricetags" style="padding-right: 10px" color="primary"></ion-icon>
-                <ion-label> {{data.price}} LKR</ion-label>
+                <ion-label> {{data.startingPrice}} LKR</ion-label>
             </ion-row>
           </ion-col>
         </ion-row>
