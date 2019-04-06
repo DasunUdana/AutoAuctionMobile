@@ -9,12 +9,21 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { HTTP } from '@ionic-native/http/ngx';
+import { CommonModule } from '@angular/common';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 
-
+const config: SocketIoConfig = {url: 'https://www.autoauction.lk/', options: {}};
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,IonicStorageModule.forRoot()],
+  imports: [
+      BrowserModule,
+      IonicModule.forRoot(),
+      AppRoutingModule,
+      IonicStorageModule.forRoot(),
+      SocketIoModule.forRoot(config),
+      CommonModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,

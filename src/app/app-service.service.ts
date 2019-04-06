@@ -6,11 +6,17 @@ import { Observable } from 'rxjs/index';
   providedIn: 'root'
 })
 export class AppServiceService {
-  private serviceUrl = 'https://www.autoauction.lk/m/auction/1?auctionline=001';
+  private serviceUrl = 'https://www.autoauction.lk';
 
   constructor(private http: HTTP) { }
 
   public getAuctionList() {
-    return this.http.get(this.serviceUrl, {}, {});
+    const url = this.serviceUrl + '/m/auction/1?auctionline=001';
+    return this.http.get(url, {}, {});
+  }
+
+  public getAuctionShedules() {
+    const url = this.serviceUrl + '/m/schedules';
+    return this.http.get(url, {}, {});
   }
 }

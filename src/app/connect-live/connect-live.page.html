@@ -11,10 +11,10 @@
   <ion-toolbar class="content-back">
     <ion-item class="tool-bar-back" lines="none" style="font-size: 15px">
       <ion-badge color="warning" class=" margin-right">CH 1</ion-badge>
-      <ion-badge color="danger" class=" margin-right">Offline</ion-badge>
+      <ion-badge color="{{onlineOffline.color}}" class=" margin-right">{{onlineOffline.displayName}}</ion-badge>
       <ion-icon name="volume-high" color="primary" style="margin-right: 2.5%"></ion-icon>
       <ion-toggle color="success" class="margin-right"></ion-toggle>
-      <ion-badge color="light" class=" margin-right">0000</ion-badge>
+      <ion-badge color="light" class=" margin-right">{{currentAuction?.auctionId}}</ion-badge>
       <ion-buttons slot="end" class=" margin-right">
         <ion-icon name="power" color="danger"></ion-icon>
       </ion-buttons>
@@ -22,18 +22,18 @@
   </ion-toolbar>
 
   <ion-item lines="none" class="content-back" style="height: 5%;">
-    <label class="ion-text-center status-panel">END</label>
+    <label class="ion-text-center status-panel">{{msgSection}}</label>
   </ion-item>
   <ion-item lines="none" class="content-back">
-    <img style="margin: auto;" src="assets/vehical1.png" />
+    <img style="margin: auto;" src="{{currentAuction?.img_url_1}}" />
     <div class="price">
-      999.99
+      {{currentBid}}
     </div>
   </ion-item>
   <ion-card margin-top no-margin style="margin-left: 4%; margin-right: 4%;">
     <ion-item lines="full">
       <ion-label>Decision</ion-label>
-      <ion-label color="primary">Outbid - Bid Again</ion-label>
+      <ion-label  color="primary">{{highestBidderDecision}}</ion-label>
     </ion-item>
   </ion-card>
 
@@ -42,31 +42,31 @@
       <ion-card class="detail-cards">
         <ion-chip color="primary">
           <ion-icon name="car" color="primary"></ion-icon>
-          <ion-label>Toyota Land Cruiser Prado</ion-label>
+          <ion-label>{{currentAuction?.make}}  {{currentAuction?.model}}</ion-label>
         </ion-chip>
 
         <ion-chip color="primary">
           <ion-icon name="calendar" color="primary"></ion-icon>
-          <ion-label>2015</ion-label>
+          <ion-label>{{currentAuction?.year}}</ion-label>
         </ion-chip>
 
         <ion-chip color="primary">
           <ion-icon name="speedometer" color="primary"></ion-icon>
-          <ion-label>150,000KM</ion-label>
+          <ion-label>{{currentAuction?.mileage}}</ion-label>
         </ion-chip>
 
         <ion-chip color="primary">
           <ion-icon name="fitness" color="primary"></ion-icon>
-          <ion-label>Triptronic</ion-label>
+          <ion-label>{{currentAuction?.transmission}}</ion-label>
         </ion-chip>
         <ion-chip color="primary">
           <ion-icon name="cog" color="primary"></ion-icon>
-          <ion-label>4800cc</ion-label>
+          <ion-label>{{currentAuction?.engine}}CC</ion-label>
         </ion-chip>
 
         <ion-chip color="primary">
           <ion-icon name="pint" color="primary"></ion-icon>
-          <ion-label>Gasoline</ion-label>
+          <ion-label>{{currentAuction?.fuel}}</ion-label>
         </ion-chip>
       </ion-card>
     </ion-slide>
@@ -80,8 +80,7 @@
     </ion-slide>
   </ion-slides>
 
-  <ion-button style="height: 12%; margin: 0 15px; font-size: 2rem;" color="danger" shape="round" expand="full">BID 5000
-    LKR</ion-button>
+  <ion-button style="height: 12%; margin: 0 15px; font-size: 2rem;" color="danger" shape="round" expand="full">BID {{currentAuction?.incrementAmount}} LKR</ion-button>
   <ion-card>
     <ion-list>
       <ion-list-header>
@@ -92,10 +91,10 @@
         <ion-avatar slot="start">
           Now
         </ion-avatar>
-        <ion-label>
-          <h2>050</h2>
-          <h3>Toyota Land Cruiser Prado</h3>
-          <p>24,500,000</p>
+        <ion-label ngif="vehicleList[0].auctionId">
+          <h2>{{vehicleList[0]?.auctionId}}</h2>
+          <h3>{{vehicleList[0]?.make}}{{vehicleList[0]?.model}}</h3>
+          <p>{{vehicleList[0]?.startingPrice}}</p>
         </ion-label>
       </ion-item>
 
@@ -103,10 +102,10 @@
         <ion-avatar slot="start">
           Next
         </ion-avatar>
-        <ion-label>
-          <h2>050</h2>
-          <h3>Toyota Land Cruiser Prado</h3>
-          <p>24,500,000</p>
+        <ion-label ngif="vehicleList[1].auctionId">
+          <h2>{{vehicleList[1]?.auctionId}}</h2>
+          <h3>{{vehicleList[1]?.make}}{{vehicleList[1]?.model}}</h3>
+          <p>{{vehicleList[1]?.startingPrice}}</p>
         </ion-label>
       </ion-item>
 
@@ -114,10 +113,10 @@
         <ion-avatar slot="start">
           Next
         </ion-avatar>
-        <ion-label>
-          <h2>050</h2>
-          <h3>Toyota Land Cruiser Prado</h3>
-          <p>24,500,000</p>
+        <ion-label ngif="vehicleList[2].auctionId">
+          <h2>{{vehicleList[2]?.auctionId}}</h2>
+          <h3>{{vehicleList[2]?.make}}{{vehicleList[2]?.model}}</h3>
+          <p>{{vehicleList[2]?.startingPrice}}</p>
         </ion-label>
       </ion-item>
 
@@ -125,10 +124,10 @@
         <ion-avatar slot="start">
           Next
         </ion-avatar>
-        <ion-label>
-          <h2>050</h2>
-          <h3>Toyota Land Cruiser Prado</h3>
-          <p>24,500,000</p>
+        <ion-label ngif="vehicleList[3].auctionId">
+          <h2>{{vehicleList[3]?.auctionId}}</h2>
+          <h3>{{vehicleList[3]?.make}}{{vehicleList[3]?.model}}</h3>
+          <p>{{vehicleList[3]?.startingPrice}}</p>
         </ion-label>
       </ion-item>
     </ion-list>
