@@ -9,7 +9,8 @@
 
 <ion-content class="">
   <ion-list no-padding>
-    <ion-card *ngFor="let data of vehicleList" (click)="presentModal(data)" class="content-back">
+    <ion-searchbar animated="true" autocomplete="on" autocorrect="on" debounce="500"></ion-searchbar>
+    <ion-card *ngFor="let data of contentArray" (click)="presentModal(data)" class="content-back">
       <ion-grid style="height: 100%;">
         <ion-row style="height: 70%;">
           <ion-col size="6">

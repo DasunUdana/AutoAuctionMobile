@@ -11,6 +11,7 @@ import {Vehical} from '../vehicle';
 })
 export class AuctionInventoryPage implements OnInit {
     vehicleList: Vehical[] = [];
+    contentArray: Vehical[] = [];
 
     constructor(public modalController: ModalController, private service: AppServiceService) {
     }
@@ -37,6 +38,27 @@ export class AuctionInventoryPage implements OnInit {
                 this.vehicleList.push(vehicleObj);
                 count++;
             });
+
+            this.contentArray = this.vehicleList;
         });
+
+        const searchbar = document.querySelector('ion-searchbar');
+        searchbar.addEventListener('ionChange', this.handleInput.bind(this));
+
+    }
+
+    handleInput (event) {
+        const searchKey = event.target.value.toLowerCase();
+        this.contentArray = [];
+
+        this.vehicleList.forEach(item => {
+            if (item.model.toLowerCase().indexOf(searchKey) > -1 || item.make.toLowerCase().indexOf(searchKey) > -1) {
+                this.contentArray.push(item);
+            }
+        });
+
+        if (searchKey === '') {
+            this.contentArray = this.vehicleList;
+        }
     }
 }
