@@ -3,11 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/auction-inventory" style="color:white" (click)="dissmiss();"></ion-back-button>
     </ion-buttons>
-    <label>2 of 244</label>
-    <ion-button slot="end">
+    <label>{{vehicleObj.index + 1}} of {{vehicleCount}}</label>
+    <ion-button disabled="{{isPreviousDisable}}" slot="end" (click)="previousVehi()">
       <ion-icon name="arrow-round-up"></ion-icon>
     </ion-button>
-    <ion-button slot="end">
+    <ion-button disabled="{{isNextDisable}}" slot="end" (click)="nextVehi()">
       <ion-icon name="arrow-round-down"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -15,19 +15,23 @@
 
 <ion-content>
   <ion-card no-margin>
-    <img src="assets/vehical1.png">
+    <ion-slides pager="true">
+      <ion-slide><img src="{{vehicleObj.img_url_1}}"></ion-slide>
+      <ion-slide><img src="{{vehicleObj.img_url_2}}"></ion-slide>
+      <ion-slide><img src="{{vehicleObj.img_url_3}}"></ion-slide>
+    </ion-slides>
   </ion-card>
 
   <ion-item no-padding class="section-back">
     <ion-grid>
-      <ion-row class="vehical-name">Toyota Axio G 2017</ion-row>
+      <ion-row class="vehical-name">{{vehicleObj.name}}</ion-row>
       <ion-row class="small-font"><label class="ion-padding-end ion-text-nowrap" style="padding-left: 3%;">Auction ID :
-        </label><label> 005</label></ion-row>
+        </label><label> {{vehicleObj.auctionId}}</label></ion-row>
       <ion-row class="small-font">
         <ion-col>
-          <ion-icon name="pin"></ion-icon>Pilimathalawa
+          <ion-icon name="pin"></ion-icon><a href="{{vehicleObj.locationMapUrl}}" class="underline ion-activatable hydrated">{{locationCity}}</a>
         </ion-col>
-        <ion-col class="ion-text-right">Sat Apr 06 2019</ion-col>
+        <ion-col class="ion-text-right">{{vehicleObj.formattedDate}}</ion-col>
       </ion-row>
     </ion-grid>
   </ion-item>
@@ -37,41 +41,41 @@
 
       <ion-chip color="primary">
           <ion-icon name="pricetags" color="primary"></ion-icon>
-          <ion-label>6,000,000 LKR</ion-label>
+          <ion-label>{{vehicleObj.startingPrice}} LKR</ion-label>
         </ion-chip>
   </ion-item>
 
   <ion-grid>
     <ion-row>
       <ion-col size="5">
-        <label class="detail-property">Make:</label> <label class="detail-value ion-text-nowrap"> Toyota</label>
+        <label class="detail-property">Make:</label> <label class="detail-value ion-text-nowrap"> {{vehicleObj.make}}</label>
       </ion-col>
       <ion-col size="7">
-        <label class="detail-property">Model:</label> <label class="detail-value ion-text-nowrap"> Yariz</label>
+        <label class="detail-property">Model:</label> <label class="detail-value ion-text-nowrap"> {{vehicleObj.model}}</label>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="5">
-        <label class="detail-property">Year:</label> <label class="detail-value ion-text-nowrap"> 2017</label>
+        <label class="detail-property">Year:</label> <label class="detail-value ion-text-nowrap"> {{vehicleObj.year}}</label>
       </ion-col>
       <ion-col size="7">
-        <label class="detail-property">Mileage:</label> <label class="detail-value ion-text-nowrap"> 10,000 Km</label>
+        <label class="detail-property">Mileage:</label> <label class="detail-value ion-text-nowrap"> {{vehicleObj.mileage}} Km</label>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="5">
-        <label class="detail-property">Engine:</label> <label class="detail-value ion-text-nowrap"> 1000CC</label>
+        <label class="detail-property">Engine:</label> <label class="detail-value ion-text-nowrap"> {{vehicleObj.engine}} CC</label>
       </ion-col>
       <ion-col size="7">
-        <label class="detail-property">Transmission:</label> <label class="detail-value ion-text-nowrap"> Automatic</label>
+        <label class="detail-property">Transmission:</label> <label class="detail-value ion-text-nowrap"> {{vehicleObj.transmission}}</label>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="5">
-        <label class="detail-property">Fuel Type:</label> <label class="detail-value ion-text-nowrap"> Hybrid</label>
+        <label class="detail-property">Fuel Type:</label> <label class="detail-value ion-text-nowrap"> {{vehicleObj.fuel}}</label>
       </ion-col>
       <ion-col size="7">
-        <label class="detail-property">Condition:</label> <label class="detail-value ion-text-nowrap"> Reconditioned</label>
+        <label class="detail-property">Condition:</label> <label class="detail-value ion-text-nowrap"> {{vehicleObj.condition}}</label>
       </ion-col>
     </ion-row>
     <ion-row>

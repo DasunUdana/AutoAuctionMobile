@@ -242,5 +242,4 @@ export class ConnectLivePage implements OnInit {
 
         this.socket.emit('update_bid', params);
     }
-
 }

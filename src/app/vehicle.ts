@@ -1,4 +1,5 @@
 export class Vehical {
+    index: number;
     id: string;
     name: string;
     auctionId: string;
@@ -21,12 +22,14 @@ export class Vehical {
     actionLocation: string;
     locationMapUrl: string;
     maxFacility: string;
+    formattedDate: string;
     img_url_1: string;
     img_url_2: string;
     img_url_3: string;
     img_url_4: string;
 
     setData (dataObj) {
+        this.index = dataObj.count ? dataObj.count : 0;
         this.id = dataObj._id ? dataObj._id : '0000';
         this.name = dataObj.make ? dataObj.make + ' ' + dataObj.model : 'Waiting...';
         this.auctionId = dataObj.auctionid ? dataObj.auctionid : '0000';
@@ -49,9 +52,17 @@ export class Vehical {
         this.actionLocation = dataObj.auction_location ? dataObj.auction_location : 'Waiting...';
         this.locationMapUrl = dataObj.locationmap_url ? dataObj.locationmap_url : 'Waiting...';
         this.maxFacility = dataObj.max_facility ? dataObj.max_facility : 'Waiting...';
-        this.img_url_1 =  dataObj.img_url_1 ? 'https://services.autoauction.lk' + dataObj.img_url_1 : 'https://services.autoauction.lk/assets/img/logo.jpg';
-        this.img_url_2 =  dataObj.img_url_2 ? 'https://services.autoauction.lk' + dataObj.img_url_2 : 'https://services.autoauction.lk/assets/img/logo.jpg';
-        this.img_url_3 =  dataObj.img_url_3 ? 'https://services.autoauction.lk' + dataObj.img_url_3 : 'https://services.autoauction.lk/assets/img/logo.jpg';
-        this.img_url_4 =  dataObj.img_url_4 ? 'https://services.autoauction.lk' + dataObj.img_url_4 : 'https://services.autoauction.lk/assets/img/logo.jpg';
+
+        this.img_url_1 =  dataObj.img_url_1 ? 'https://services.autoauction.lk' +
+            dataObj.img_url_1 : 'https://services.autoauction.lk/assets/img/logo.jpg';
+        this.img_url_2 =  dataObj.img_url_2 ? 'https://services.autoauction.lk' +
+            dataObj.img_url_2 : 'https://services.autoauction.lk/assets/img/logo.jpg';
+        this.img_url_3 =  dataObj.img_url_3 ? 'https://services.autoauction.lk' +
+            dataObj.img_url_3 : 'https://services.autoauction.lk/assets/img/logo.jpg';
+        this.img_url_4 =  dataObj.img_url_4 ? 'https://services.autoauction.lk' +
+            dataObj.img_url_4 : 'https://services.autoauction.lk/assets/img/logo.jpg';
+
+        const aucDateObj = new Date(this.auctionDate);
+        this.formattedDate = [aucDateObj.getFullYear(), aucDateObj.getMonth(), aucDateObj.getDate()].join('-');
     }
 }

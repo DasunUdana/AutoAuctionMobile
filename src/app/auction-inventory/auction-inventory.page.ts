@@ -15,9 +15,10 @@ export class AuctionInventoryPage implements OnInit {
     constructor(public modalController: ModalController, private service: AppServiceService) {
     }
 
-    async presentModal() {
+    async presentModal(data) {
         const modal = await this.modalController.create({
-            component: VehicalDetailViewPage
+            component: VehicalDetailViewPage,
+            componentProps: {vehicleObj: data, vehicleList: this.vehicleList}
         });
 
         return await modal.present();
@@ -25,12 +26,16 @@ export class AuctionInventoryPage implements OnInit {
 
     ngOnInit() {
         this.service.getAuctionList().then(data => {
-            const inveltoryArray = JSON.parse(data.data).inventory;
+            let count = 0;
+            const inventoryArray = JSON.parse(data.data).inventory;
 
-            inveltoryArray.forEach((element) => {
+            inventoryArray.forEach((element) => {
                 const vehicleObj = new Vehical();
+
+                element.count = count;
                 vehicleObj.setData(element);
                 this.vehicleList.push(vehicleObj);
+                count++;
             });
         });
     }
