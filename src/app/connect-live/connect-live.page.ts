@@ -225,12 +225,22 @@ export class ConnectLivePage implements OnInit {
         this.currentBid = this.currentAuction.startingPrice;
     }
 
-    setOnlineOffline(status) {
+    setOnlineOffline (status) {
         if (status === 'online') {
             this.onlineOffline = {displayName: 'Online', color: 'success'};
         } else if (status === 'offline') {
             this.onlineOffline = {displayName: 'Offline', color: 'danger'};
         }
+    }
+
+    sendBid () {
+        const params = {
+            auctionid: this.currentAuction.auctionId,
+            bidder_username: this.username,
+            bid_amount: this.currentAuction.incrementAmount
+        };
+
+        this.socket.emit('update_bid', params);
     }
 
 }

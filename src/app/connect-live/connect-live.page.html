@@ -80,7 +80,8 @@
     </ion-slide>
   </ion-slides>
 
-  <ion-button style="height: 12%; margin: 0 15px; font-size: 2rem;" color="danger" shape="round" expand="full">BID {{currentAuction?.incrementAmount}} LKR</ion-button>
+  <ion-button disabled="{{isButtonDisable}}" style="height: 12%; margin: 0 15px; font-size: 2rem;" color="danger" shape="round" expand="full" (click)="sendBid()">BID {{currentAuction?.incrementAmount}} LKR</ion-button>
+
   <ion-card>
     <ion-list>
       <ion-list-header>
