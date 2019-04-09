@@ -7,11 +7,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicModule } from '@ionic/angular';
 
 import { ConnectLivePage } from './connect-live.page';
+import {AuthGuard} from '../guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: ConnectLivePage
+    component: ConnectLivePage, canActivate: [AuthGuard]
   }
 ];
 

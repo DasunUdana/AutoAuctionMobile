@@ -10,8 +10,10 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/ro
   providedIn: 'root'
 })
 export class AuthenticationService {
+  isAuthenticateSuccess = false;
+  rqstUrl = 'https://auction.autoauction.lk/users/signin_mob';
 
-  constructor(private storage: Storage, private http: HTTP,private router: Router) {
+  constructor(private storage: Storage, private http: HTTP, private router: Router) {
   }
 
   getToken() {
@@ -27,21 +29,51 @@ export class AuthenticationService {
   }
 
   loginAuthenticate(email, isAuthentication, token) {
-    this.storage.set("email", email);
-    this.storage.set("isAuthentication", isAuthentication);
-    this.storage.set("token", token);
+    this.storage.set('email', email);
+    this.storage.set('isAuthentication', isAuthentication);
+    this.storage.set('token', token);
   }
 
   logoutAuthenticate() {
-    this.storage.set("email", "");
-    this.storage.set("isAuthentication", false);
-    this.storage.set("token", "");
+    this.storage.set('email', '');
+    this.storage.set('isAuthentication', false);
+    this.storage.set('token', '');
 
     this.router.navigate(['/login']);
   }
 
-  loginPassData(form) {
-    let url = ''; //server url should comes here
-    return this.http.post(url, form, {});
+  loginPassData (formObj) {
+    return this.http.post(this.rqstUrl, formObj, {}).then((data) => {
+      const res = JSON.parse(data.data);
+      console.log(res);
+
+      if (res.username === formObj.username) {
+        this.storage.set('username', res.username);
+
+        return Promise.resolve();
+      }
+
+      return Promise.reject();
+    })
+    .catch((data) => {
+        return Promise.reject('Invalid Credentials');
+    });
+  }
+
+  checkLogin (): any {
+    return new Promise((resolve, reject) => {
+      this.http.get('https://auction.autoauction.lk/rtmobile', {}, {}).then((data) => {
+        const res = JSON.parse(data.data);
+
+        this.storage.get('username').then((username) => {
+          if (res.username === username) {
+            resolve();
+          }
+        });
+      })
+      .catch((data) => {
+        reject(data);
+      });
+    });
   }
 }

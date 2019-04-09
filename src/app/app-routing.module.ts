@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'menu-items', pathMatch: 'full' },
@@ -14,21 +15,12 @@ const routes: Routes = [
   { path: 'connect-live', loadChildren: './connect-live/connect-live.module#ConnectLivePageModule' },
   { path: 'auction-home', loadChildren: './auction-home/auction-home.module#AuctionHomePageModule' },
   { path: 'auction-inventory', loadChildren: './auction-inventory/auction-inventory.module#AuctionInventoryPageModule' },
-  { path: 'connect-live', loadChildren: './connect-live/connect-live.module#ConnectLivePageModule' },
+  { path: 'connect-live', loadChildren: './connect-live/connect-live.module#ConnectLivePageModule', canActivate: [AuthGuard]},
   { path: 'vehical-detail-view', loadChildren: './vehical-detail-view/vehical-detail-view.module#VehicalDetailViewPageModule' },
   { path: 'how-to-bid', loadChildren: './how-to-bid/how-to-bid.module#HowToBidPageModule' },
   { path: 'about-us', loadChildren: './about-us/about-us.module#AboutUsPageModule' },
   { path: 'contact-us', loadChildren: './contact-us/contact-us.module#ContactUsPageModule' },
   { path: '**', redirectTo: 'menu-items' },
-
-
-
- 
-
-  
-
-
-
 ];
 
 @NgModule({
