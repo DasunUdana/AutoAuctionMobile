@@ -11,7 +11,6 @@ import { ToastController } from '@ionic/angular';
 export class VehicalDetailViewPage implements OnInit {
   vehicleObj: Vehical;
   vehicleList: Vehical[];
-  locationCity: string;
   vehicleCount: number;
 
   isPreviousDisable = true;
@@ -20,7 +19,6 @@ export class VehicalDetailViewPage implements OnInit {
   constructor(public modalController: ModalController, public toastController: ToastController) { }
 
   ngOnInit() {
-    this.locationCity = this.vehicleObj.actionLocation.split(' ').pop();
     this.vehicleCount = this.vehicleList.length;
   }
 

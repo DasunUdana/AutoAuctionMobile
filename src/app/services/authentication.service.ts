@@ -68,6 +68,8 @@ export class AuthenticationService {
         this.storage.get('username').then((username) => {
           if (res.username === username) {
             resolve();
+          } else {
+            reject();
           }
         });
       })

@@ -23,6 +23,8 @@ export class Vehical {
     locationMapUrl: string;
     maxFacility: string;
     formattedDate: string;
+    remainDays: string;
+    locationCity: string;
     img_url_1: string;
     img_url_2: string;
     img_url_3: string;
@@ -63,6 +65,40 @@ export class Vehical {
             dataObj.img_url_4 : 'https://services.autoauction.lk/assets/img/logo.jpg';
 
         const aucDateObj = new Date(this.auctionDate);
+        const diffObj = this.convertMiliseconds(aucDateObj.getMilliseconds() - new Date().getMilliseconds(), '');
+        this.remainDays = diffObj.d + 'd  ' + diffObj.h + 'h ' + diffObj.m + 'm';
         this.formattedDate = [aucDateObj.getFullYear(), aucDateObj.getMonth(), aucDateObj.getDate()].join('-');
+
+        this.locationCity = this.actionLocation.split(' ').pop();
+    }
+
+    convertMiliseconds (miliseconds, format) {
+        let days, hours, minutes, seconds, total_hours, total_minutes, total_seconds;
+
+        total_seconds = parseInt(Math.floor(miliseconds / 1000).toString(), 10);
+        total_minutes = parseInt(Math.floor(total_seconds / 60).toString(), 10);
+        total_hours = parseInt(Math.floor(total_minutes / 60).toString(), 10);
+        days = parseInt(Math.floor(total_hours / 24).toString(), 10);
+
+        seconds = parseInt((total_seconds % 60).toString(), 10);
+        minutes = parseInt((total_minutes % 60).toString(), 10);
+        hours = parseInt((total_hours % 24).toString(), 10);
+
+        switch (format) {
+            case 's':
+                return total_seconds;
+                break;
+            case 'm':
+                return total_minutes;
+                break;
+            case 'h':
+                return total_hours;
+                break;
+            case 'd':
+                return days;
+                break;
+            default:
+                return { d: days, h: hours, m: minutes, s: seconds };
+        }
     }
 }

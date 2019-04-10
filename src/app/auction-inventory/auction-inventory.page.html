@@ -9,36 +9,32 @@
 
 <ion-content class="">
   <ion-list no-padding>
-    <ion-searchbar animated="true" autocomplete="on" autocorrect="on" debounce="500"></ion-searchbar>
-    <ion-card *ngFor="let data of contentArray" (click)="presentModal(data)" class="content-back">
+    <ion-searchbar animated="true" autocomplete="on" autocorrect="on" debounce="250"></ion-searchbar>
+    <ion-card *ngFor="let data of contentArray" (click)="presentModal(data)" style="font-size: 0.7rem;">
       <ion-grid style="height: 100%;">
-        <ion-row style="height: 70%;">
-          <ion-col size="6">
-            <img style="width: 100%;" src={{data.img_url_1}} />
+        <ion-row>
+          <ion-col size="3">
+            <img style="width: 85%;" src={{data.img_url_1}} />
           </ion-col>
-          <ion-col style="padding: 15px 0">
-            <ion-row style="padding: 5px; font-weight: 800; font-size: 1rem;">
-                <ion-card-title style="font-weight: bold">{{data.name}}</ion-card-title>
+          <ion-col siz="6">
+            <ion-row>
+                <ion-label class="font-color-black">{{data.name}}</ion-label>
             </ion-row>
-            <ion-row style="padding: 5px">
-              <ion-icon name="speedometer" style="padding-right: 10px" color="primary"></ion-icon>
+            <ion-row style="padding-top: 5px;">
               <ion-label> {{data.mileage}} Km</ion-label>
             </ion-row>
-            <ion-row style="padding: 5px">
-              <ion-icon name="car" style="padding-right: 10px" color="primary"></ion-icon>
+            <ion-row style="padding-top: 5px;">
               <ion-label> {{data.engine}} CC</ion-label>
             </ion-row>
-            <ion-row style="padding: 5px; font-weight: 800; color: black">
-                <ion-icon name="pricetags" style="padding-right: 10px" color="primary"></ion-icon>
-                <ion-label> {{data.startingPrice}} LKR</ion-label>
+            <ion-row  style="padding-top: 5px;">
+              <ion-label class="font-color-black"> {{data.locationCity}} </ion-label>
             </ion-row>
           </ion-col>
-        </ion-row>
-        <!-- <ion-row>
-          <ion-col>
-              
+          <ion-col size="3">
+            <ion-label class="font-color-black"style="font-size: 0.8rem;"> {{data.startingPrice}} LKR</ion-label>
+            <div class="remaining-days">8d 15h 23m</div>
           </ion-col>
-        </ion-row> -->
+        </ion-row>
       </ion-grid>
     </ion-card>
   </ion-list>

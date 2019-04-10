@@ -14,3 +14,14 @@ ion-icon{
 .content-back {
     --background: linear-gradient(to right,#487fee,#32fa95)
 }
+
+.font-color-black {
+    font-weight: 600;
+    color: black;
+}
+
+.remaining-days {
+    position: absolute;
+    bottom: 5px;
+    color: red;
+}
