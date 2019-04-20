@@ -17,6 +17,7 @@ export class ConnectLivePage implements OnInit {
     currentBid = '000';
     currentAuction: Vehical;
     isButtonDisable =  false;
+    isVolumeOn =  true;
 
     constructor(private socket: Socket) {
     }
@@ -27,29 +28,57 @@ export class ConnectLivePage implements OnInit {
         this.onResponseFromSocket();
     }
 
+    playSound (type, playStop) {
+        const audioElement = <HTMLAudioElement>document.getElementById(type);
+
+        if (playStop === 0) {
+            audioElement.pause();
+        } else if (playStop === 1) {
+            audioElement.play().then(d => console.log(d)).catch(e => console.log('err in audio' + e));
+        }
+    }
+
+    volumeControl () {
+        if (this.isVolumeOn) {
+            this.isVolumeOn = false;
+            this.playSound('new_vehicle', 0);
+            this.playSound('start', 0);
+            this.playSound('rls_reserve', 0);
+            this.playSound('end_soon', 0);
+            this.playSound('stop', 0);
+        } else {
+            this.isVolumeOn = true;
+        }
+    }
+
     onResponseFromSocket () {
         this.socketRsponseHandler().subscribe((res: {channel: string, DAT: any}) => {
             switch (res.channel) {
                 case 'vehidetails':
                     this.onVehidetail(res.DAT);
+                    this.playSound('new_vehicle', 1);
                     break;
 
                 case 'start_b':
                     this.msgSection = res.DAT.msg;
+                    this.playSound('start', 1);
                     break;
 
                 case 'ending_soon_b':
                     this.msgSection = res.DAT.msg;
+                    this.playSound('end_soon', 1);
                     break;
 
                 case 'stop_b':
                     this.msgSection = res.DAT.msg;
                     this.isButtonDisable = true;
+                    this.playSound('stop', 1);
                     break;
 
                 case 'rls_reserve_b':
                     this.msgSection = res.DAT.msg;
                     this.isButtonDisable = false;
+                    this.playSound('rls_reserve', 1);
                     break;
 
                 case 'status_line_b':

@@ -12,8 +12,12 @@
     <ion-item class="tool-bar-back" lines="none" style="font-size: 15px">
       <ion-badge color="warning" class=" margin-right">CH 1</ion-badge>
       <ion-badge color="{{onlineOffline.color}}" class=" margin-right">{{onlineOffline.displayName}}</ion-badge>
-      <ion-icon name="volume-high" color="primary" style="margin-right: 2.5%"></ion-icon>
-      <ion-toggle color="success" class="margin-right"></ion-toggle>
+      <ng-container *ngIf="isVolumeOn; else elseTemplate">
+        <ion-icon name="volume-high" color="primary" class="margin-right" (click)="volumeControl()"></ion-icon>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <ion-icon name="volume-off" color="primary" class="margin-right" (click)="volumeControl()"></ion-icon>
+      </ng-template>
       <ion-badge color="light" class=" margin-right">{{currentAuction?.auctionId}}</ion-badge>
       <ion-buttons slot="end" class=" margin-right">
         <ion-icon name="power" color="danger"></ion-icon>
@@ -30,7 +34,7 @@
       {{currentBid}}
     </div>
   </ion-item>
-  <ion-card margin-top no-margin style="margin-left: 4%; margin-right: 4%;">
+  <ion-card no-margin style="margin-left: 4%; margin-right: 4%;">
     <ion-item lines="full">
       <ion-label>Decision</ion-label>
       <ion-label  color="primary">{{highestBidderDecision}}</ion-label>
@@ -40,39 +44,35 @@
   <ion-slides pager="true" [options]="slideOpts">
     <ion-slide>
       <ion-card class="detail-cards">
-        <ion-chip color="primary">
+        <ion-chip  class="big-font" color="primary">
           <ion-icon name="car" color="primary"></ion-icon>
           <ion-label>{{currentAuction?.make}}  {{currentAuction?.model}}</ion-label>
         </ion-chip>
-
         <ion-chip color="primary">
           <ion-icon name="calendar" color="primary"></ion-icon>
           <ion-label>{{currentAuction?.year}}</ion-label>
         </ion-chip>
-
         <ion-chip color="primary">
           <ion-icon name="speedometer" color="primary"></ion-icon>
           <ion-label>{{currentAuction?.mileage}}</ion-label>
         </ion-chip>
-
         <ion-chip color="primary">
           <ion-icon name="fitness" color="primary"></ion-icon>
           <ion-label>{{currentAuction?.transmission}}</ion-label>
-        </ion-chip>
-        <ion-chip color="primary">
-          <ion-icon name="cog" color="primary"></ion-icon>
-          <ion-label>{{currentAuction?.engine}}CC</ion-label>
-        </ion-chip>
-
-        <ion-chip color="primary">
-          <ion-icon name="pint" color="primary"></ion-icon>
-          <ion-label>{{currentAuction?.fuel}}</ion-label>
         </ion-chip>
       </ion-card>
     </ion-slide>
     <ion-slide>
       <ion-card class="detail-cards">
-        <ion-chip color="primary" class="ion-text-justify" style="height: 100%;">
+        <ion-chip color="primary">
+          <ion-icon name="cog" color="primary"></ion-icon>
+          <ion-label>{{currentAuction?.engine}}CC</ion-label>
+        </ion-chip>
+        <ion-chip color="primary">
+          <ion-icon name="pint" color="primary"></ion-icon>
+          <ion-label>{{currentAuction?.fuel}}</ion-label>
+        </ion-chip>
+        <ion-chip color="primary" class="ion-text-justify">
           Will be sold to the highest bidder if reserve met! Hello Will be sold to the highest bidder if reserve met!
           Hello Will be sold to the highest bidder if reserve met! Hello
         </ion-chip>
@@ -80,7 +80,7 @@
     </ion-slide>
   </ion-slides>
 
-  <ion-button disabled="{{isButtonDisable}}" style="height: 12%; margin: 0 15px; font-size: 2rem;" color="danger" shape="round" expand="full" (click)="sendBid()">BID {{currentAuction?.incrementAmount}} LKR</ion-button>
+  <ion-button disabled="{{isButtonDisable}}" style="height: 12%; margin: 0 15px 10px 15px; font-size: 2rem;" color="danger" shape="round" expand="full" (click)="sendBid()">BID {{currentAuction?.incrementAmount}} LKR</ion-button>
 
   <ion-card>
     <ion-list>
@@ -134,3 +134,19 @@
     </ion-list>
   </ion-card>
 </ion-content>
+
+<audio id="new_vehicle">
+  <source src="https://auction.autoauction.lk/sound_clips/new_vehicle.mp3" type="audio/mpeg">
+</audio>
+<audio id="start">
+  <source src="https://auction.autoauction.lk/sound_clips/start.mp3" type="audio/mpeg">
+</audio>
+<audio id="rls_reserve">
+  <source src="https://auction.autoauction.lk/sound_clips/released_reserved.mp3" type="audio/mpeg">
+</audio>
+<audio id="end_soon">
+  <source src="https://auction.autoauction.lk/sound_clips/ending_soon.mp3" type="audio/mpeg">
+</audio>
+<audio id="stop">
+  <source src="https://auction.autoauction.lk/sound_clips/stop.mp3" type="audio/mpeg">
+</audio>
