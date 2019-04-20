@@ -10,6 +10,8 @@ import {Vehical} from '../vehicle';
     styleUrls: ['./auction-inventory.page.scss'],
 })
 export class AuctionInventoryPage implements OnInit {
+    isLoaded = false;
+    dummyArray = new Array(10);
     vehicleList: Vehical[] = [];
     contentArray: Vehical[] = [];
 
@@ -40,11 +42,11 @@ export class AuctionInventoryPage implements OnInit {
             });
 
             this.contentArray = this.vehicleList;
+            this.isLoaded = true;
         });
 
         const searchbar = document.querySelector('ion-searchbar');
         searchbar.addEventListener('ionChange', this.handleInput.bind(this));
-
     }
 
     handleInput (event) {

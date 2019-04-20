@@ -1,41 +1,73 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Auction-Inventory</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Auction-Inventory</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content class="">
-  <ion-list no-padding>
-    <ion-searchbar animated="true" autocomplete="on" autocorrect="on" debounce="250"></ion-searchbar>
-    <ion-card *ngFor="let data of contentArray" (click)="presentModal(data)" style="font-size: 0.7rem;">
-      <ion-grid style="height: 100%;">
-        <ion-row>
-          <ion-col size="3">
-            <img style="width: 85%;" src={{data.img_url_1}} />
-          </ion-col>
-          <ion-col siz="6">
-            <ion-row>
-                <ion-label class="font-color-black">{{data.name}}</ion-label>
-            </ion-row>
-            <ion-row style="padding-top: 5px;">
-              <ion-label> {{data.mileage}} Km</ion-label>
-            </ion-row>
-            <ion-row style="padding-top: 5px;">
-              <ion-label> {{data.engine}} CC</ion-label>
-            </ion-row>
-            <ion-row  style="padding-top: 5px;">
-              <ion-label class="font-color-black"> {{data.locationCity}} </ion-label>
-            </ion-row>
-          </ion-col>
-          <ion-col size="3">
-            <ion-label class="font-color-black"style="font-size: 0.8rem;"> {{data.startingPrice}} LKR</ion-label>
-            <div class="remaining-days">8d 15h 23m</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card>
-  </ion-list>
+    <ion-list no-padding>
+        <ion-searchbar animated="true" autocomplete="on" autocorrect="on" debounce="250"></ion-searchbar>
+        <ng-container *ngIf="isLoaded; else elseTemplate">
+            <ion-card *ngFor="let data of contentArray" (click)="presentModal(data)" style="font-size: 0.7rem;">
+                <ion-grid style="height: 100%;">
+                    <ion-row>
+                        <ion-col size="3">
+                            <img style="width: 85%;" src={{data.img_url_1}} />
+                        </ion-col>
+                        <ion-col siz="6">
+                            <ion-row>
+                                <ion-label class="font-color-black">{{data.name}}</ion-label>
+                            </ion-row>
+                            <ion-row style="padding-top: 5px;">
+                                <ion-label> {{data.mileage}} Km</ion-label>
+                            </ion-row>
+                            <ion-row style="padding-top: 5px;">
+                                <ion-label> {{data.engine}} CC</ion-label>
+                            </ion-row>
+                            <ion-row  style="padding-top: 5px;">
+                                <ion-label class="font-color-black"> {{data.locationCity}} </ion-label>
+                            </ion-row>
+                        </ion-col>
+                        <ion-col size="3">
+                            <ion-label class="font-color-black"style="font-size: 0.8rem;"> {{data.startingPrice}} LKR</ion-label>
+                            <div class="remaining-days">8d</div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
+        </ng-container>
+
+        <ng-template #elseTemplate>
+            <ion-card *ngFor="let item of dummyArray">
+                <ion-grid style="height: 100%;">
+                    <ion-row>
+                        <ion-col size="3">
+                            <ion-skeleton-text animated style="width: 85%; height: 90%"></ion-skeleton-text>
+                        </ion-col>
+                        <ion-col siz="6">
+                            <ion-row>
+                                <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+                            </ion-row>
+                            <ion-row>
+                                <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+                            </ion-row>
+                            <ion-row>
+                                <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+                            </ion-row>
+                            <ion-row>
+                                <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+                            </ion-row>
+                        </ion-col>
+                        <ion-col size="3">
+                            <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+                            <ion-skeleton-text animated style="width: 20px;" class="remaining-days"></ion-skeleton-text>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
+        </ng-template>
+    </ion-list>
 </ion-content>

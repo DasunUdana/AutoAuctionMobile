@@ -201,7 +201,6 @@ export class ConnectLivePage implements OnInit {
         this.highestBidderDecision = 'No Decision';
 
         const vehicleObj = new Vehical();
-        vehicleObj.setData(undefined);
         this.currentAuction = vehicleObj;
 
         this.vehicleList = [];

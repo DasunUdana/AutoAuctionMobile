@@ -19,4 +19,9 @@ export class AppServiceService {
     const url = this.serviceUrl + '/m/schedules';
     return this.http.get(url, {}, {});
   }
+
+  public sendPrebid(dataObj) {
+    const url = this.serviceUrl + '/prebidupd';
+    return this.http.post(url, dataObj, {});
+  }
 }
