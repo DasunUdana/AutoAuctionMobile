@@ -14,7 +14,7 @@ export class ConnectLivePage implements OnInit {
     onlineOffline = {displayName: 'Offline', color: 'danger'};
     highestBidderDecision = 'No Decision';
     msgSection = 'End';
-    currentBid = '000';
+    currentBid = '0.00';
     currentAuction: Vehical;
     isButtonDisable =  false;
     isVolumeOn =  true;
@@ -61,6 +61,7 @@ export class ConnectLivePage implements OnInit {
 
                 case 'start_b':
                     this.msgSection = res.DAT.msg;
+                    this.isButtonDisable = false;
                     this.playSound('start', 1);
                     break;
 
@@ -240,6 +241,9 @@ export class ConnectLivePage implements OnInit {
     }
 
     onVehidetail (vehicalArray: []) {
+        this.vehicleList = [];
+        this.currentAuction = new Vehical();
+
         vehicalArray.forEach((element) => {
             const vehicleObj = new Vehical();
             vehicleObj.setData(element);
@@ -251,6 +255,7 @@ export class ConnectLivePage implements OnInit {
         this.highestBidderDecision = 'No Decision';
         this.msgSection = 'Starting Soon';
         this.currentBid = this.currentAuction.startingPrice;
+        this.isButtonDisable = true;
     }
 
     setOnlineOffline (status) {
@@ -262,10 +267,12 @@ export class ConnectLivePage implements OnInit {
     }
 
     sendBid () {
+        const currentBid = (Number(this.currentBid) + Number(this.currentAuction.incrementAmountVal)).toFixed(2);
+
         const params = {
             auctionid: this.currentAuction.auctionId,
             bidder_username: this.username,
-            bid_amount: this.currentAuction.incrementAmount
+            bid_amount: currentBid
         };
 
         this.socket.emit('update_bid', params);

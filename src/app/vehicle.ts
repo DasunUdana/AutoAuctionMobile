@@ -14,7 +14,9 @@ export class Vehical {
     condition = 'Waiting...';
     description = 'Waiting...';
     startingPrice = 'Waiting...';
+    startingPriceVal = 0;
     incrementAmount = 'Waiting...';
+    incrementAmountVal = 0;
     renewedDate = 'Waiting...';
     auctionDate = 'Waiting...';
     addedBy = 'Waiting...';
@@ -25,7 +27,7 @@ export class Vehical {
     formattedDate = 'Waiting...';
     remainDays = 'Waiting...';
     locationCity = 'Waiting...';
-    img_url_1 = 'https://services.autoauction.lk/assets/img/logo.jpg';
+    img_url_1 = 'assets/logo.png';
     img_url_2 = 'https://services.autoauction.lk/assets/img/logo.jpg';
     img_url_3 = 'https://services.autoauction.lk/assets/img/logo.jpg';
     img_url_4 = 'https://services.autoauction.lk/assets/img/logo.jpg';
@@ -46,7 +48,9 @@ export class Vehical {
         this.condition = dataObj.condition;
         this.description = dataObj.description;
         this.startingPrice = this.numberWithCommas(dataObj.starting_price);
+        this.startingPriceVal = dataObj.starting_price;
         this.incrementAmount = this.numberWithCommas(dataObj.increment_amount);
+        this.incrementAmountVal = dataObj.increment_amount;
         this.renewedDate = dataObj.renewed_date;
         this.auctionDate = dataObj.auction_date;
         this.addedBy = dataObj.addedby;
