@@ -10,12 +10,12 @@ import { AuthenticationService } from '../services/authentication.service';
 export class MenuItemsPage implements OnInit {
   public appPages = [
     {
-      title: 'How To Bid',
+      title: 'How to Bid',
       url: '/how-to-bid',
       icon: 'car'
     },
     {
-      title: 'Deposite Bank Information',
+      title: 'Deposite Information',
       url: '/password-reset',
       icon: 'cash'
     },
@@ -28,7 +28,18 @@ export class MenuItemsPage implements OnInit {
       title: 'Contact Us',
       url: '/contact-us',
       icon: 'contacts'
+    },
+    {
+      title: 'Register',
+      url: '/register',
+      icon: 'person'
+    },
+    {
+      title: 'Sign In',
+      url: '/login',
+      icon: 'log-in'
     }
+
 
   ];
 

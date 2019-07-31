@@ -3,11 +3,11 @@
     <ion-buttons slot="start">
       <ion-menu-button icon="menu"></ion-menu-button>
     </ion-buttons>
-    <ion-title align="center" style="color:white">
-      Auto-Auction
+    <ion-title align="center" style="color:white; margin-left:7%">
+       Home | LK
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button [routerLink]="['/login']">Sign-In <ion-icon name="log-in"></ion-icon>
+      <ion-button [routerLink]="['/login']" style="text-transform: none;">Sign In<ion-icon name="log-in"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -15,8 +15,8 @@
 
 <ion-content class="content-back" padding>
   <div align="center" style="margin-top:3%">
-    <ion-label style="color: white;font-size: x-large">
-      Welcome to <br> AUTO-AUCTION
+    <ion-label style="color: white;">
+     <p style="color: white;font-size: x-large">AUTO-AUCTION </p> <br> <p style="color: white;font-size: 0.9em">"Sri Lanka's Largest Vehicle Auction Network"</p>
     </ion-label>
   </div>
 
@@ -25,14 +25,14 @@
       <ion-col>
         <ion-card class="card-content" [routerLink]="['/auction-home']">
           <ion-icon name="apps"></ion-icon>
-          <div class="card-title" align="center">AUCTION INVENTORY </div>
+          <div class="card-title" align="center">Auction Inventory </div>
         </ion-card>
 
       </ion-col>
       <ion-col>
         <ion-card class="card-content" [routerLink]="['/connect-live']" >
             <ion-icon name="pulse"></ion-icon>
-          <div class="card-title" align="center">CONNECT LIVE </div>
+          <div class="card-title" align="center">Live Auction </div>
         </ion-card>
       </ion-col>
 
@@ -45,14 +45,14 @@
             <ion-icon name="list-box"></ion-icon>
          
            
-          <div class="card-title" align="center">AUCTION SCHEDULE </div>
+          <div class="card-title" align="center">Auction schedules </div>
         </ion-card>
 
       </ion-col>
       <ion-col>
         <ion-card class="card-content"  [routerLink]="['/qr-scanner']">
             <ion-icon name="qr-scanner"></ion-icon>
-          <div class="card-title" align="center">QR SCANNER</div>
+          <div class="card-title" align="center">QR Scanner</div>
         </ion-card>
       </ion-col>
 
