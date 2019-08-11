@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-items',
@@ -45,24 +45,28 @@ export class MenuItemsPage implements OnInit {
 
 
   email: any;
+  isUserLoggedIn: boolean;
 
-  constructor(private authService: AuthenticationService) {
+  constructor(private authService: AuthenticationService, private router: Router) {
   }
 
-  ngOnInit() {
-    // this.authService.getEmail().then((value) => {
-    //   if(!value)
-    //     this.authService.logoutAuthenticate();
+  ngOnInit() {}
 
-    //   this.email = value;
-    // }).catch(error => {
-    //   console.log(error);
-    //   this.authService.logoutAuthenticate();
-    // });
+  ionViewWillEnter() {
+    this.authService.checkLogin().then(() => {
+      this.isUserLoggedIn = true;
+    })
+    .catch(() => {
+      this.isUserLoggedIn = false;
+    });
   }
 
   logout() {
-    this.authService.logoutAuthenticate();
+    if (this.isUserLoggedIn) {
+      this.authService.logoutAuthenticate();
+    } else {
+      this.router.navigate(['login']);
+    }
   }
 
 

@@ -28,14 +28,14 @@ export class AuthenticationService {
     return this.storage.get('isAuthentication');
   }
 
-  loginAuthenticate(email, isAuthentication, token) {
-    this.storage.set('email', email);
+  loginAuthenticate(username, isAuthentication, token) {
+    this.storage.set('username', username);
     this.storage.set('isAuthentication', isAuthentication);
     this.storage.set('token', token);
   }
 
   logoutAuthenticate() {
-    this.storage.set('email', '');
+    this.storage.set('username', '');
     this.storage.set('isAuthentication', false);
     this.storage.set('token', '');
 
@@ -48,7 +48,7 @@ export class AuthenticationService {
       console.log(res);
 
       if (res.username === formObj.username) {
-        this.storage.set('username', res.username);
+        this.loginAuthenticate(res.username, true, '');
 
         return Promise.resolve();
       }

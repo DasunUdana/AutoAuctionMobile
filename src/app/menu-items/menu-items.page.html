@@ -26,7 +26,10 @@
       <ion-buttons slot="end">
         <ion-button color="primary" (click)="logout()">
           <ion-icon slot="start" name="exit"></ion-icon>
-          logout
+          <span *ngIf = "isUserLoggedIn === true; else elseTag">Logout</span>
+          <ng-template #elseTag>
+            <span>LogIn</span>
+          </ng-template>
         </ion-button>
       </ion-buttons>
     </ion-footer>
