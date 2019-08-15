@@ -2,12 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {Socket} from 'ng-socket-io';
 import {Observable} from 'rxjs';
 import {Vehical} from '../vehicle';
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
     selector: 'app-connect-live',
     templateUrl: './connect-live.page.html',
     styleUrls: ['./connect-live.page.scss'],
 })
+
 export class ConnectLivePage implements OnInit {
     username = 'dasun';
     vehicleList: Vehical[] = [];
@@ -19,7 +21,7 @@ export class ConnectLivePage implements OnInit {
     isButtonDisable =  false;
     isVolumeOn =  true;
 
-    constructor(private socket: Socket) {
+    constructor(private socket: Socket, private authService: AuthenticationService) {
     }
 
     ngOnInit() {
@@ -276,5 +278,9 @@ export class ConnectLivePage implements OnInit {
         };
 
         this.socket.emit('update_bid', params);
+    }
+
+    logout () {
+        this.authService.logoutAuthenticate(true);
     }
 }

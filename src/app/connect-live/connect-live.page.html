@@ -19,7 +19,7 @@
         <ion-icon name="volume-off" color="primary" class="margin-right" (click)="volumeControl()"></ion-icon>
       </ng-template>
       <ion-badge color="light" class=" margin-right">{{currentAuction?.auctionId}}</ion-badge>
-      <ion-buttons slot="end" class=" margin-right">
+      <ion-buttons slot="end" class=" margin-right" (click)="logout()">
         <ion-icon name="power" color="danger"></ion-icon>
       </ion-buttons>
     </ion-item>
@@ -37,9 +37,11 @@
   <ion-card no-margin style="margin-left: 4%; margin-right: 4%;">
     <ion-item lines="full">
       <ion-label>Decision</ion-label>
-      <ion-label  color="primary">{{highestBidderDecision}}</ion-label>
+      <ion-label  color="primary" style="font-size: 15px; font-weight: 900">{{highestBidderDecision}}</ion-label>
     </ion-item>
   </ion-card>
+
+  <ion-button disabled="{{isButtonDisable}}" style="height: 12%; margin: 15px 15px 5px 15px; font-size: 2rem;" color="danger" shape="round" expand="full" (click)="sendBid()">BID {{currentAuction?.incrementAmount}} LKR</ion-button>
 
   <ion-slides pager="true">
     <ion-slide>
@@ -73,14 +75,11 @@
           <ion-label>{{currentAuction?.fuel}}</ion-label>
         </ion-chip>
         <ion-chip color="primary" class="ion-text-justify">
-          Will be sold to the highest bidder if reserve met! Hello Will be sold to the highest bidder if reserve met!
-          Hello Will be sold to the highest bidder if reserve met! Hello
+          {{currentAuction?.description}}
         </ion-chip>
       </ion-card>
     </ion-slide>
   </ion-slides>
-
-  <ion-button disabled="{{isButtonDisable}}" style="height: 12%; margin: 0 15px 10px 15px; font-size: 2rem;" color="danger" shape="round" expand="full" (click)="sendBid()">BID {{currentAuction?.incrementAmount}} LKR</ion-button>
 
   <ion-card>
     <ion-list>

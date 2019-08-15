@@ -34,12 +34,16 @@ export class AuthenticationService {
     this.storage.set('token', token);
   }
 
-  logoutAuthenticate() {
+  logoutAuthenticate(isGoHome) {
     this.storage.set('username', '');
     this.storage.set('isAuthentication', false);
     this.storage.set('token', '');
 
-    this.router.navigate(['/login']);
+    if (isGoHome) {
+      this.router.navigate(['/menu-items']);
+    } else {
+      this.router.navigate(['login']);
+    }
   }
 
   loginPassData (formObj) {
