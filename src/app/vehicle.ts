@@ -31,6 +31,7 @@ export class Vehical {
     img_url_2 = 'https://services.autoauction.lk/assets/img/logo.jpg';
     img_url_3 = 'https://services.autoauction.lk/assets/img/logo.jpg';
     img_url_4 = 'https://services.autoauction.lk/assets/img/logo.jpg';
+    img_url_5 = 'https://services.autoauction.lk/assets/img/logo.jpg';
 
     setData (dataObj) {
         this.index = dataObj.count;
@@ -62,6 +63,7 @@ export class Vehical {
         this.img_url_2 = 'https://services.autoauction.lk' + dataObj.img_url_2;
         this.img_url_3 = 'https://services.autoauction.lk' + dataObj.img_url_3;
         this.img_url_4 = 'https://services.autoauction.lk' + dataObj.img_url_4;
+        this.img_url_5 = 'https://services.autoauction.lk' + dataObj.img_url_5;
 
         const aucDateObj = new Date(this.auctionDate);
         const diffObj = this.convertMiliseconds(aucDateObj.getMilliseconds() - new Date().getMilliseconds(), '');

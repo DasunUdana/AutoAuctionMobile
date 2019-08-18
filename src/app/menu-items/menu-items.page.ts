@@ -63,7 +63,7 @@ export class MenuItemsPage implements OnInit {
 
   logout() {
     if (this.isUserLoggedIn) {
-      this.authService.logoutAuthenticate();
+      this.authService.logoutAuthenticate(false);
     } else {
       this.router.navigate(['login']);
     }
